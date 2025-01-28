@@ -1,7 +1,7 @@
 package org.example;
 
 @Cache(value = {"FirstValue", "SecondValue"})
-@Two(first = "FirstValue", second = "SecondValue")
+@Two(first = "FirstValue", second = 2)
 @Default(value = MyClass.class)
 @Validate(value = {MyClass.class})
 @ToString
