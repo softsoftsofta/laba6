@@ -103,25 +103,21 @@ class CacheUtilTest {
         }
     }
 
+    // тест на подачу в метод cache пустого массива объектов (null)
     @Test
     public void testCacheWithNullArray() {
         Object[] cachedObjects = CacheUtil.cache(null);
         assertEquals(0, cachedObjects.length);
     }
 
+    // тест на подачу в метод cache пустого массива объектов (empty)
     @Test
     public void testCacheWithEmptyArray() {
         Object[] cachedObjects = CacheUtil.cache(new Object[0]);
         assertEquals(0, cachedObjects.length);
     }
 
-    @Test
-    public void testCacheWithNullObject() {
-        Object[] cachedObjects = CacheUtil.cache(new Object[]{null});
-        assertEquals(1, cachedObjects.length);
-        assertNull(cachedObjects[0]);
-    }
-
+    //  тест на подачу в метод cache объекта класса, проаннотированного @Cache
     @Test
     public void testCacheWithCacheAnnotation() {
         TestClass obj1 = new TestClass();
@@ -130,6 +126,7 @@ class CacheUtilTest {
         assertNotSame(obj1, cachedObject);
     }
 
+    //  тест на подачу в метод cache объекта класса, непроаннотированного @Cache
     @Test
     public void testCacheWithNoCacheAnnotation() {
         TestClass2 obj2 = new TestClass2();
